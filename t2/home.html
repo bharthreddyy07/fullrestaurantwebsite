@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Court</title>
+  <style>
+    /* Reset default margin for paragraphs */
+    p {
+      margin: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    header nav ul li {
+      margin: 0 15px; /* Slightly increased spacing between navigation links */
+    }
+
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    #hero {
+      text-align: center;
+      margin-top: 2rem; /* Added margin-top for breathing space */
+      padding: 2rem 0; /* Added padding for better separation */
+      background-color: #fff; /* Added a white background for contrast */
+      border-radius: 10px; /* Rounded corners for the hero section */
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+
+    #hero img {
+      max-width: 200px;
+      height: auto;
+    }
+
+    #hero h1 {
+      margin: 1rem 0;
+      font-size: 2rem;
+      color: #333; /* Darkened text color for better readability */
+    }
+
+    #hero p {
+      font-size: 1.2rem;
+      color: #555; /* Slightly muted text color */
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #333;
+      color: white;
+    }
+
+    #image-carousel {
+      overflow: hidden;
+      position: relative;
+      height: 100vh; /* Set carousel height to fit the screen height */
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-container {
+      display: flex;
+      animation: scrollImages 20s linear infinite;
+      width: 200%; /* Double the width for circular scrolling */
+      align-items: center;
+    }
+
+    .carousel-inner img {
+      height: 100%; /* Make images take full height */
+      width: auto; /* Let the width adjust automatically to maintain aspect ratio */
+      margin: 0;
+      object-fit: cover; /* Maintain aspect ratio while covering the container */
+    }
+
+    /* Styling for buttons */
+    #buttons {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    #buttons a {
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    #buttons button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #buttons button:hover {
+      background-color: #555;
+    }
+
+    .contact-details {
+      text-align: center;
+      margin-top: 2rem;
+      padding: 2rem 0;
+      background-color: #333;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .contact-details h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .contact-details p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Food Court</h1>
+  </header>
+  
+  <section id="hero">
+    <img src="fclogo.jpeg" alt="Food Court Logo">
+    <h1>Welcome to Food Court</h1>
+    <p>Discover a world of flavors and culinary delights.</p>
+  </section>
+  
+  <div id="buttons">
+    <a href="login.html"><button>Login</button></a>
+    <a href="registration.html"><button>Register</button></a>
+    <a href="admin-login.html"><button>Admin Login</button></a>
+  </div>
+
+  <div id="image-carousel">
+    <div class="carousel-container">
+      <div class="carousel-inner">
+        <img src="Boti kebab.jpg" alt="Image 1">
+        <img src="Bikaneri bhujia.jpg" alt="Image 2">
+        <img src="dish1.jpg" alt="Image 3">
+        <img src="dish2.jpeg" alt="Image 4">
+        <img src="dish3.png" alt="Image 5">
+        <img src="fbground.jpeg" alt="Image 6">
+        <img src="dish4.jpg" alt="Image 7">
+        <img src="Boti kebab.jpg" alt="Image 8">
+        <img src="Bikaneri bhujia.jpg" alt="Image 9">
+        <img src="dish1.jpg" alt="Image 10">
+      </div>
+    </div>
+  </div>
+
+  <section class="contact-details">
+    <h2>Contact Us</h2>
+    <p>Email: info@foodcourt.com</p>
+    <p>Phone: +91 9392468082</p>
+    <p>Address: Near Vignan university, Vadlamudi, Guntur</p>
+    <p>&copy; 2023 Food Court. All rights reserved.</p>
+  </section>
+
+  <script>
+    // Get the carousel container and the inner container with images
+    const carouselContainer = document.querySelector('.carousel-container');
+    const carouselInner = document.querySelector('.carousel-inner');
+  
+    // Create an array of images
+    const images = carouselInner.querySelectorAll('img');
+  
+    // Function to change the image
+    function changeImage(index) {
+      images.forEach(image => {
+        image.style.display = 'none';
+      });
+  
+      images[index].style.display = 'block';
+    }
+  
+    let currentImageIndex = 0;
+  
+    function startCarousel() {
+      changeImage(currentImageIndex);
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+    }
+  
+    // Call the startCarousel function to begin
+    startCarousel();
+  
+    // Call the startCarousel function every 3 seconds (adjust as needed)
+    setInterval(startCarousel, 3000);
+  </script>
+</body>
+</html>

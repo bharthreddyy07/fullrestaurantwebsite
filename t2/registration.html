@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      /* background-color: #f8f8f8; */
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    body{
+            background-image:  url(offer3.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+
+        }
+
+    #register-form {
+      background-color: #ffffff89;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    a {
+      display: inline-block;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    a:hover {
+      background-color: #555;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var phoneNumber = document.forms["registerForm"]["phoneNumber"].value;
+      var email = document.forms["registerForm"]["email"].value;
+      
+      var phonePattern = /^\d{10}$/;
+      var emailPattern = /^[^\s@]+@[^@\s]+\.com$/i;
+      
+      if (!phonePattern.test(phoneNumber)) {
+        alert("Invalid phone number. Please enter a 10-digit phone number.");
+        return false;
+      }
+      
+      if (!emailPattern.test(email)) {
+        alert("Invalid email address. Please enter a valid email address.");
+        return false;
+      }
+      
+      // Additional validations and form submission logic can be added here
+    }
+  </script>
+  <link rel="icon" href="dish1.jpg">
+</head>
+ 
+
+<body>
+  <div id="register-form">
+    <h1>Registration Page</h1>
+    <form name="registerForm" action="register.jsp" method="post" onsubmit="return validateForm()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" id="phoneNumber" name="phoneNumber" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
+
+
+
